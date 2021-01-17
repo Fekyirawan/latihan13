@@ -5,6 +5,7 @@ use App\http\Controllers\HomeController;
 use App\http\Controllers\AuthController;
 use App\http\Controllers\ProdukController;
 use App\http\Controllers\UserController;
+use App\http\Controllers\SettingController;
 use App\Http\Controllers\ClientProdukController;
 
 /*
@@ -22,6 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('beranda/{status}', [HomeController::class, 'showberanda']);
+
 Route::get('login', [AuthController::class, 'showlogin'])->name('login');
 Route::get('registrasi', [AuthController::class, 'registrasi']);
 Route::post('registrasi', [AuthController::class, 'store']);
@@ -29,15 +32,37 @@ Route::post('login', [AuthController::class, 'loginprocess']);
 Route::get('logout', [AuthController::class, 'logout']);
 Route::get('client', [HomeController::class, 'client']);
 
-Route::get('test/{produk}', [HomeController::class, 'test']);
+
+
+Route::get('setting', [SettingController::class, 'index']);
+Route::post('setting', [SettingController::class, 'store']);
 
 // Halaman Admin
+
+// Route::prefix('pembeli')->middleware('auth:pembeli')->group(function(){
+
+// Route::post('produk/filter', [ProdukController::class, 'filter']);
+// Route::get('beranda', [HomeController::class, 'showberanda']);
+// Route::resource('produk', ProdukController::class);
+// Route::resource('user', UserController::class);
+
+// });
+
+// Route::prefix('penjual')->middleware('auth:penjual')->group(function(){
+
+// Route::post('produk/filter', [ProdukController::class, 'filter']);
+// Route::get('beranda', [HomeController::class, 'showberanda']);
+// Route::resource('produk', ProdukController::class);
+// Route::resource('user', UserController::class);
+
+// });
 
 Route::prefix('admin')->middleware('auth')->group(function(){
 
 Route::post('produk/filter', [ProdukController::class, 'filter']);
 Route::get('beranda', [HomeController::class, 'showberanda']);
 Route::resource('produk', ProdukController::class);
+Route::resource('product', ProductController::class);
 Route::resource('user', UserController::class);
 
 });

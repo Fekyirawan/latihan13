@@ -12,9 +12,16 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">
-            @if(Auth::check())
-              Hello {{request()->user()->nama}}
+           @if(Auth::check())
+              {{request()->user()->nama}}
+            @elseif(Auth::guard('pembeli')->check())
+              {{Auth::guard('pembeli')->user()->nama}}
+              <br>Pembeli
+             @elseif(Auth::guard('penjual')->check())
+              {{Auth::guard('penjual')->user()->nama}}
+              <br>Pembeli
             @else
+              Silahkan login
             @endif
           </a>
         </div>

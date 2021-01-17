@@ -19,6 +19,9 @@
           <a href="{{url('login')}}" class="dropdown-item">
             <i class="fas fa-login-out"></i> Log Out
           </a>
+          <a href="{{url('setting')}}" class="dropdown-item">
+            <i class="fas fa-login-cog"></i> Setting
+          </a>
       </li>
     </ul>
   </nav>

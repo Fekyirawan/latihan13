@@ -25,12 +25,19 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
 <div class="wrapper">
-    @include('template.section.header')
+   <div class="container"> @include('template.section.header')</div>
     @include('template.section.sidebar')
   </div>
 
   <div class="content-wrapper">
-       @yield('content')
+    <div class="container"> 
+      <div class="row">
+        <div class="col-md-12">
+           @include('utils.notif')
+        </div>
+      </div>
+    </div>
+           @yield('content')
   </div>
    
     @include('template.section.footer')   

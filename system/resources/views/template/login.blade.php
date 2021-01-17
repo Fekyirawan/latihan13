@@ -1,365 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/summernote/summernote-bs4.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-	 <!-- Bootstrap core CSS -->
-  <link href="{{url('public')}}/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!--external css-->
-  <link href="{{url('public')}}/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="{{url('public')}}/css/zabuto_calendar.css">
-  <link rel="stylesheet" type="text/css" href="{{url('public')}}/lib/gritter/css/jquery.gritter.css" />
-  <!-- Custom styles for this template -->
-  <link href="{{url('public')}}/css/style.css" rel="stylesheet">
-  <link href="{{url('public')}}/css/style-responsive.css" rel="stylesheet">
-  <script src="{{url('public')}}/lib/chart-master/Chart.js"></script>
+  <link rel="stylesheet" href="{{url('public')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="{{url('public')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-
-
-
-	<title></title>
-
-
-	<style type="text/css">
-	
-
-		/* BASIC */
-
-		html {
-		  background-color: #56baed;
-		}
-
-		body {
-		  font-family: "Poppins", sans-serif;
-		  height: 100vh;
-		}
-
-		a {
-		  color: #92badd;
-		  display:inline-block;
-		  text-decoration: none;
-		  font-weight: 400;
-		}
-
-		h2 {
-		  text-align: center;
-		  font-size: 16px;
-		  font-weight: 600;
-		  text-transform: uppercase;
-		  display:inline-block;
-		  margin: 40px 8px 10px 8px; 
-		  color: #cccccc;
-		}
-
-
-
-		/* STRUCTURE */
-
-		.wrapper {
-		  display: flex;
-		  align-items: center;
-		  flex-direction: column; 
-		  justify-content: center;
-		  width: 100%;
-		  min-height: 100%;
-		  padding: 20px;
-		}
-
-		#formContent {
-		  -webkit-border-radius: 10px 10px 10px 10px;
-		  border-radius: 10px 10px 10px 10px;
-		  background: #fff;
-		  padding: 30px;
-		  width: 90%;
-		  max-width: 450px;
-		  position: relative;
-		  padding: 0px;
-		  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-		  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-		  text-align: center;
-		}
-
-		#formFooter {
-		  background-color: #f6f6f6;
-		  border-top: 1px solid #dce8f1;
-		  padding: 25px;
-		  text-align: center;
-		  -webkit-border-radius: 0 0 10px 10px;
-		  border-radius: 0 0 10px 10px;
-		}
-
-
-
-		/* TABS */
-
-		h2.inactive {
-		  color: #cccccc;
-		}
-
-		h2.active {
-		  color: #0d0d0d;
-		  border-bottom: 2px solid #5fbae9;
-		}
-
-
-
-		/* FORM TYPOGRAPHY*/
-
-		input[type=button], input[type=submit], input[type=reset]  {
-		  background-color: #56baed;
-		  border: none;
-		  color: white;
-		  padding: 15px 80px;
-		  text-align: center;
-		  text-decoration: none;
-		  display: inline-block;
-		  text-transform: uppercase;
-		  font-size: 13px;
-		  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-		  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-		  -webkit-border-radius: 5px 5px 5px 5px;
-		  border-radius: 5px 5px 5px 5px;
-		  margin: 5px 20px 40px 20px;
-		  -webkit-transition: all 0.3s ease-in-out;
-		  -moz-transition: all 0.3s ease-in-out;
-		  -ms-transition: all 0.3s ease-in-out;
-		  -o-transition: all 0.3s ease-in-out;
-		  transition: all 0.3s ease-in-out;
-		}
-
-		input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-		  background-color: #39ace7;
-		}
-
-		input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
-		  -moz-transform: scale(0.95);
-		  -webkit-transform: scale(0.95);
-		  -o-transform: scale(0.95);
-		  -ms-transform: scale(0.95);
-		  transform: scale(0.95);
-		}
-
-		input[type=text] {
-		  background-color: #f6f6f6;
-		  border: none;
-		  color: #0d0d0d;
-		  padding: 15px 32px;
-		  text-align: center;
-		  text-decoration: none;
-		  display: inline-block;
-		  font-size: 16px;
-		  margin: 5px;
-		  width: 85%;
-		  border: 2px solid #f6f6f6;
-		  -webkit-transition: all 0.5s ease-in-out;
-		  -moz-transition: all 0.5s ease-in-out;
-		  -ms-transition: all 0.5s ease-in-out;
-		  -o-transition: all 0.5s ease-in-out;
-		  transition: all 0.5s ease-in-out;
-		  -webkit-border-radius: 5px 5px 5px 5px;
-		  border-radius: 5px 5px 5px 5px;
-		}
-
-		input[type=text]:focus {
-		  background-color: #fff;
-		  border-bottom: 2px solid #5fbae9;
-		}
-
-		input[type=text]:placeholder {
-		  color: #cccccc;
-		}
-
-		input[type=password] {
-		  background-color: #f6f6f6;
-		  border: none;
-		  color: #0d0d0d;
-		  padding: 15px 32px;
-		  text-align: center;
-		  text-decoration: none;
-		  display: inline-block;
-		  font-size: 16px;
-		  margin: 5px;
-		  width: 85%;
-		  border: 2px solid #f6f6f6;
-		  -webkit-transition: all 0.5s ease-in-out;
-		  -moz-transition: all 0.5s ease-in-out;
-		  -ms-transition: all 0.5s ease-in-out;
-		  -o-transition: all 0.5s ease-in-out;
-		  transition: all 0.5s ease-in-out;
-		  -webkit-border-radius: 5px 5px 5px 5px;
-		  border-radius: 5px 5px 5px 5px;
-		}
-
-		input[type=password]:focus {
-		  background-color: #fff;
-		  border-bottom: 2px solid #5fbae9;
-		}
-
-		input[type=password]:placeholder {
-		  color: #cccccc;
-		}
-
-
-
-		/* ANIMATIONS */
-
-		/* Simple CSS3 Fade-in-down Animation */
-		.fadeInDown {
-		  -webkit-animation-name: fadeInDown;
-		  animation-name: fadeInDown;
-		  -webkit-animation-duration: 1s;
-		  animation-duration: 1s;
-		  -webkit-animation-fill-mode: both;
-		  animation-fill-mode: both;
-		}
-
-		@-webkit-keyframes fadeInDown {
-		  0% {
-		    opacity: 0;
-		    -webkit-transform: translate3d(0, -100%, 0);
-		    transform: translate3d(0, -100%, 0);
-		  }
-		  100% {
-		    opacity: 1;
-		    -webkit-transform: none;
-		    transform: none;
-		  }
-		}
-
-		@keyframes fadeInDown {
-		  0% {
-		    opacity: 0;
-		    -webkit-transform: translate3d(0, -100%, 0);
-		    transform: translate3d(0, -100%, 0);
-		  }
-		  100% {
-		    opacity: 1;
-		    -webkit-transform: none;
-		    transform: none;
-		  }
-		}
-
-		/* Simple CSS3 Fade-in Animation */
-		@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-		@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-		@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-		.fadeIn {
-		  opacity:0;
-		  -webkit-animation:fadeIn ease-in 1;
-		  -moz-animation:fadeIn ease-in 1;
-		  animation:fadeIn ease-in 1;
-
-		  -webkit-animation-fill-mode:forwards;
-		  -moz-animation-fill-mode:forwards;
-		  animation-fill-mode:forwards;
-
-		  -webkit-animation-duration:1s;
-		  -moz-animation-duration:1s;
-		  animation-duration:1s;
-		}
-
-		.fadeIn.first {
-		  -webkit-animation-delay: 0.4s;
-		  -moz-animation-delay: 0.4s;
-		  animation-delay: 0.4s;
-		}
-
-		.fadeIn.second {
-		  -webkit-animation-delay: 0.6s;
-		  -moz-animation-delay: 0.6s;
-		  animation-delay: 0.6s;
-		}
-
-		.fadeIn.third {
-		  -webkit-animation-delay: 0.8s;
-		  -moz-animation-delay: 0.8s;
-		  animation-delay: 0.8s;
-		}
-
-		.fadeIn.fourth {
-		  -webkit-animation-delay: 1s;
-		  -moz-animation-delay: 1s;
-		  animation-delay: 1s;
-		}
-
-		/* Simple CSS3 Fade-in Animation */
-		.underlineHover:after {
-		  display: block;
-		  left: 0;
-		  bottom: -10px;
-		  width: 0;
-		  height: 2px;
-		  background-color: #56baed;
-		  content: "";
-		  transition: width 0.2s;
-		}
-
-		.underlineHover:hover {
-		  color: #0d0d0d;
-		}
-
-		.underlineHover:hover:after{
-		  width: 100%;
-		}
-
-
-
-		/* OTHERS */
-
-		*:focus {
-		    outline: none;
-		} 
-
-		#icon {
-		  width:10%;
-		}
-	</style>
-
-
-
-
+  @stack('style')
+ 
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed" style="background: #f4f6f9;">
 
-	<div class="wrapper fadeInDown">
-		<div id="formContent">
-			<div class="fadeIn first">
-				 <img src="{{url('public')}}/img/login.png "id="icon" width=""  />
-			</div>
-			 @include('utils.notif')
-			<form action="{{ url('login') }}" method="post">
-				@csrf
-				<input type="text" class="fadeIn second" placeholder="email" name="email">
-				<input type="password" class="fadeIn third" placeholder="password" name="password">
-				<input type="submit" class="fadeIn fourth" value="Log In">
-			</form>
-			<div id="formFooter">
-				<a class="underlineHover forget" href="{{url('registrasi')}}">Register</a>
+<div class="wrapper">
+	<div class="container">
+		<div class="container">
+		
+			<div class="col-md-8">
+				<div class="card" style="margin-left: 300px; margin-top: 200px;">
+					<article class="card-body">
+						<h4 class="text-center ">Sign in</h4>
+						<hr>
+						 @include('utils.notif')
+						<form action="{{ url('login')}}" method="post" class="mt-4">
+							@csrf
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+									    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+									 </div>
+									<input name="email" class="form-control" placeholder="Email or login" type="email">
+								</div> <!-- input-group.// -->
+							</div> <!-- form-group// -->
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+									    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+									 </div>
+								    <input name="password" class="form-control" placeholder="******" type="password">
+								</div> <!-- input-group.// -->
+							</div> <!-- form-group// -->
+							<div class="form-group">
+								 <div class="input-group mb-3">
+						          <select name="login_as" class="form form-control">
+							            <option value="1">Admin</option>
+							            <option value="2">Pengguna</option>
+						          </select>
+							    </div>
+							</div> 
+
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-block"> Login  </button>
+							</div> <!-- form-group// -->
+							<p class="text-center"><a href="{{url('registrasi')}}" class="btn">Register</a></p>
+						</form>
+					</article>
+				</div> <!-- card.// -->
 			</div>
 		</div>
-	</div>
+	</div> <!-- row.// -->
+</div> 
+<!--container end.//-->
 
 
 
+<script src="{{url('public')}}/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="{{url('public')}}/plugins/jquery/jquery.min.js"></script>
 
+<script src="{{url('public')}}/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<script src="{{url('public')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{url('public')}}/plugins/chart.js/Chart.min.js"></script>
+<script src="{{url('public')}}/plugins/sparklines/sparkline.js"></script>
+<script src="{{url('public')}}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="{{url('public')}}/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="{{url('public')}}/plugins/moment/moment.min.js"></script>
+<script src="{{url('public')}}/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="{{url('public')}}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="{{url('public')}}/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{url('public')}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
+<!--DataTables-->
+<script src="{{url('public')}}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{url('public')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{url('public')}}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{url('public')}}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
+<script src="{{url('public')}}/dist/js/adminlte.js"></script>
+<script src="{{url('public')}}/dist/js/pages/dashboard.js"></script>
+<script src="{{url('public')}}/dist/js/demo.js"></script>
 
-	 <!-- js placed at the end of the document so the pages load faster -->
-	  <script src="{{url('public')}}/lib/jquery/jquery.min.js"></script>
-
-	  <script src="{{url('public')}}/lib/bootstrap/js/bootstrap.min.js"></script>
-	  <script class="{{url('public')}}/include" type="text/javascript" src="{{url('public')}}/lib/jquery.dcjqaccordion.2.7.js"></script>
-	  <script src="{{url('public')}}/lib/jquery.scrollTo.min.js"></script>
-	  <script src="{{url('public')}}/lib/jquery.nicescroll.js" type="text/javascript"></script>
-	  <script src="{{url('public')}}/lib/jquery.sparkline.js"></script>
-	  <!--common script for all pages-->
-	  <script src="{{url('public')}}/lib/common-scripts.js"></script>
-	  <script type="text/javascript" src="{{url('public')}}/lib/gritter/js/jquery.gritter.js"></script>
-	  <script type="text/javascript" src="{{url('public')}}/lib/gritter-conf.js"></script>
-	  <!--script for this page-->
-	  <script src="{{url('public')}}/lib/sparkline-chart.js"></script>
-	  <script src="{{url('public')}}/lib/zabuto_calendar.js"></script>
-	  <script type="text/javascript">
+@stack('script')
+<script>
+    $(".table-datatable").DataTable();
+</script>
 </body>
 </html>
+
+	
+
+
